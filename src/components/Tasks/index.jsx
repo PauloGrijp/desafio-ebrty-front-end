@@ -1,9 +1,14 @@
-import { Container } from './styles';
+import { Task } from '../Task';
+import { Container, Content, Table } from './styles';
 
 export function Tasks() {
   return (
     <Container>
-      <h1>Tasks</h1>     
+      <h2>Todas as tarefas</h2>
+      <Content>     
+        <Task />
+        <Task />
+      </Content>
     </Container>
   );
 };
