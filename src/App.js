@@ -1,16 +1,10 @@
-import { useEffect } from "react";
-import { api } from "../src/services/api";
+import { NavBar } from "./components/NavBar";
 
 function App() {
-
-  useEffect(() => {
-    api.get('tasks').then(response => console.log(response.data))
-  }, [])
-
   return (
-    <div>
-      
-    </div>
+    <>
+      <NavBar />
+    </>
   );
 }
 

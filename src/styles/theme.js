@@ -1,6 +1,7 @@
 const theme = {
   background: '#ECEFF5',
-  primary: '#EA4C89',
+  backgroundLight: '#fff',
+  primary: '#14c9a8',
   done: '#29C274',
   inProgress: '#20A3F5',
   pending: '#FB7A78',
