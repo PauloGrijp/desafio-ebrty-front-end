@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createServer, Model } from 'miragejs';
 import { ThemeProvider } from 'styled-components';
 import App from './App';
+import dataTask from './schemaDb/data';
 import theme from '../src/styles/theme';
 import GlobalStyles from '../src/styles/global';
 
@@ -12,33 +13,9 @@ createServer({
   },
 
   seeds(server) {
-    server.db.loadData({
-      tasks: [
-        {
-          _id: 1,
-          task: 'Primeira tarefa cadastrada',
-          status: 'pendente',
-          priority: 'baixa',
-          createAt: new Date(),
-        },
-        {
-          _id: 2,
-          task: 'Segunda tarefa cadastrada',
-          status: 'pronto',
-          priority: 'media',
-          createAt: new Date(),
-        },
-        {
-          _id: 3,
-          task: 'Terceira tarefa cadastrada',
-          status: 'em andamento',
-          priority: 'alta',
-          createAt: new Date(),
-        }
-      ],
-    });
+    server.db.loadData(dataTask);
   },
-
+  
   routes() {
     this.namespace = 'api';
 
@@ -48,7 +25,6 @@ createServer({
 
     this.post('tasks', (schema, request) => {
       const data = JSON.parse(request.requestBody);
-
       return schema.create('task', { ...data, createAt: new Date() })
     });
   }
