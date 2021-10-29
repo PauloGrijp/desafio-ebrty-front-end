@@ -14,10 +14,6 @@ export const Container = styled.div`
 `;
 
 export const Item = styled.li`
-  color: ${({ theme, isActive }) => (
-      isActive ? theme.backgroundLight : theme.primary
-  )};
-
   button {
     background: ${({ theme, isActive }) => (
       isActive ? theme.primary : theme.backgroundLight

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import { IoAddCircleOutline } from 'react-icons/io5'
 import { Task } from '../Task';
 import { api } from '../../services/api';
-import { Container, Content } from './styles';
+import { Container, Content, Header } from './styles';
 
 export function Tasks() {
   const [tasks, setTasks] = useState([]);
@@ -13,7 +14,13 @@ export function Tasks() {
 
   return (
     <Container>
-      <h2>Todas as tarefas</h2>
+      <Header>
+        <h2>Todas as tarefas</h2>
+        <button>
+          <IoAddCircleOutline />
+        </button>
+      </Header>
+
       <Content>
         {tasks.map((task) => <Task key={task._id} task={task}/>)}
       </Content>

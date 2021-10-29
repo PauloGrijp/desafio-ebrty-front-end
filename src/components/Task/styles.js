@@ -41,10 +41,16 @@ export const Edit = styled.div`
     border: none;
     vertical-align: middle;
 
-    transition: color 0.2s;
+    transition: all 0.5s;
 
     &:hover {
-      color: ${({ theme }) => darken(0.1, theme.inProgress)}
+      color: ${({ theme }) => darken(0.1, theme.inProgress)};
+      transform: scale(1.1);
+    }
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
     }
   }
 `;
@@ -55,10 +61,16 @@ export const Delete = styled.div`
     border: none;
     vertical-align: middle;
 
-    transition: color 0.2s;
+    transition: all 0.5s;
 
     &:hover {
-      color: ${({ theme }) => darken(0.1, theme.error)}
+      color: ${({ theme }) => darken(0.1, theme.error)};
+      transform: scale(1.1);
+    }
+
+    svg {
+      width: 1.2rem;
+      height: 1.2rem;
     }
   }
 `;

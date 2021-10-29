@@ -10,11 +10,6 @@ export const Container = styled.div`
   max-width: 1020px;
   width: 100%;
   margin: 2rem;
-
-  h2 {
-    border-bottom: 1px solid ${({ theme }) => theme.border};
-    padding: 1.2rem 2rem;
-  }
 `;
 
 export const Content = styled.section`
@@ -26,4 +21,29 @@ text-align: center;
       background: ${({ theme }) => darken(0.05, theme.backgroundLight)};
     }
    }
+`;
+
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid ${({ theme }) => theme.border};
+  padding: 1.2rem 2rem;
+
+  button {
+    border: none;
+    background: none;
+    color: ${({ theme }) => theme.primary};
+
+    transition: transform 1.5s;
+
+    &:hover {
+      transform:  rotatey(180deg) scale(1.1);    
+    }   
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
 `;

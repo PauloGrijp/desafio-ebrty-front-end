@@ -1,6 +1,6 @@
 import { Item } from './styles';
 
-export function Button({ icon, text, route, isActive }) {
+export function Link({ icon, text, isActive }) {
   return (
     <Item isActive={isActive}>
       <button>        
