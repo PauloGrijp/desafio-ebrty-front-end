@@ -8,6 +8,7 @@ const theme = {
   mediumPrt: '#FB9A33',
   lowPrt: '#F5BF2C',
   error: '#d45d5d',
+  success: '#29C274',
   text: '#565658',
 }
 
