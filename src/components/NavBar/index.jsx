@@ -1,6 +1,6 @@
 import { Container } from './styles';
-import { AiOutlineBars } from 'react-icons/ai';
-import { Link } from './Link';
+import { AiOutlineBars, AiOutlineFileAdd } from 'react-icons/ai';
+import { Button } from './Button';
 
 export function NavBar() {
   return (
@@ -8,12 +8,15 @@ export function NavBar() {
       <h1>Ebytr</h1>
       <nav>
         <ul>
-          <Link
+          <Button
             icon={<AiOutlineBars />}
-            route="/"
             text="Listar Tarefas"
             isActive
-          />                 
+          />
+          <Button
+            icon={<AiOutlineFileAdd />}
+            text="Adicionar Tarefa"
+          />             
         </ul>
       </nav>
     </Container>

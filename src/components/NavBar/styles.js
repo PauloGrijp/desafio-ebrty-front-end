@@ -18,10 +18,16 @@ export const Item = styled.li`
       isActive ? theme.backgroundLight : theme.primary
   )};
 
-  a {
+  button {
     background: ${({ theme, isActive }) => (
       isActive ? theme.primary : theme.backgroundLight
     )};
+
+    color: ${({ theme, isActive }) => (
+      isActive ? theme.backgroundLight : theme.text
+    )};
+
+    border: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
