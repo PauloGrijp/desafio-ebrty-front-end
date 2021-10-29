@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   * {
@@ -14,9 +14,6 @@ export default createGlobalStyle`
     font-weight: 400;
     font-size: 1rem;
     color: ${({ theme }) => theme.text};
-
-    height: 100vh;
-    width: 100vw;
   }
 
   ul {
@@ -35,4 +32,11 @@ export default createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+`;
+
+export const Container = styled.main`
+  display: flex;
+
+  height: 100vh;
+  width: 100vw;
 `;

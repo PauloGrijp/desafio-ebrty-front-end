@@ -1,5 +1,5 @@
 import { Container } from './styles';
-import { AiOutlineBars, AiOutlineBarChart } from 'react-icons/ai';
+import { AiOutlineBars } from 'react-icons/ai';
 import { Link } from './Link';
 
 export function NavBar() {
