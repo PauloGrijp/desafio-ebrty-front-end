@@ -1,5 +1,6 @@
 import { Container } from './styles';
 import { AiOutlineBars, AiOutlineBarChart } from 'react-icons/ai';
+import { Link } from './Link';
 
 export function NavBar() {
   return (
@@ -7,15 +8,16 @@ export function NavBar() {
       <h1>tasks</h1>
       <nav>
         <ul>
-          <li>
-            <i><AiOutlineBars /></i>
-            <a href="/">Listar Tarefas</a>
-          </li>
-
-          <li>
-            <i><AiOutlineBarChart /></i>
-            <a href="/progress">Progresso </a>
-          </li>                    
+          <Link
+            icon={<AiOutlineBars />}
+            route="/"
+            text="Listar Tarefas"
+          /> 
+          <Link
+            icon={<AiOutlineBarChart />}
+            route="/progress"
+            text="Progresso"
+          />                  
         </ul>
       </nav>
     </Container>

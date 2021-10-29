@@ -12,18 +12,21 @@ export const Container = styled.div`
     padding: 1rem;
   }
 
-  li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  li {    
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      height: 100%;
+      width: 100%;
+      padding: 2rem;
+    }
 
-    padding: 2rem;
-    
     i {
       margin-bottom: 1rem;
       width: 2rem;
-
 
       svg {
         width: 2rem;
