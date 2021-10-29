@@ -1,5 +1,8 @@
-import { Container } from './styles';
+import { AiOutlineClose } from 'react-icons/ai';
 import Modal from 'react-modal';
+
+import { Container, Header } from './styles';
+
 
 export function NewTaskModal({ isOpen, onRequestClose }) {
   return (
@@ -9,7 +12,16 @@ export function NewTaskModal({ isOpen, onRequestClose }) {
       overlayClassName="react-modal-overlay"
       className="react-modal-content"
     >
-      <h1>NewTaskModal</h1>     
+      <Header>
+        <h3>Adiciona nova tarefa</h3>
+        <button onClick={onRequestClose}>
+          <AiOutlineClose />
+        </button>
+      </Header>
+
+      <Container>
+        
+      </Container>
     </Modal>
   );
 };
