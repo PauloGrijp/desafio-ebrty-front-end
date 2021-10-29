@@ -13,6 +13,7 @@ export default createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1rem;
+    color: ${({ theme }) => theme.text};
 
     height: 100vh;
     width: 100vw;

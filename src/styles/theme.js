@@ -1,5 +1,6 @@
 const theme = {
   background: '#ECEFF5',
+  backgroundLight: '#fff',
   primary: '#EA4C89',
   done: '#29C274',
   inProgress: '#20A3F5',
