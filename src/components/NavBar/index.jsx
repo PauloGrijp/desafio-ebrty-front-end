@@ -5,7 +5,7 @@ import { Link } from './Link';
 export function NavBar() {
   return (
     <Container>
-      <h1>tasks</h1>
+      <h1>Ebytr</h1>
       <nav>
         <ul>
           <Link
