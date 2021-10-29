@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
+import { darken, lighten } from 'polished';
 
 export const Container = styled.div`
   box-shadow: 0 0 15px -4px rgba(0,0,0,0.75);
@@ -35,10 +35,11 @@ export const Header = styled.header`
     background: none;
     color: ${({ theme }) => theme.primary};
 
-    transition: transform 1.5s;
+    transition: all 0.5s;
 
     &:hover {
-      transform:  rotatey(180deg) scale(1.1);    
+      color: ${({ theme }) => lighten(0.2, theme.primary)};
+      transform: scale(1.06); 
     }   
 
     svg {
