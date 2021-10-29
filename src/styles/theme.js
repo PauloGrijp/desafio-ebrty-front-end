@@ -11,6 +11,7 @@ const theme = {
   error: '#d45d5d',
   success: '#29C274',
   text: '#565658',
+  border: '#e6e6e6',
 }
 
 export default theme;

@@ -9,4 +9,10 @@ export const Container = styled.div`
 
   max-width: 1020px;
   width: 100%;
+
+  h1 {
+    padding: 1rem 2rem;
+
+    border-bottom: 1px solid ${({ theme }) => theme.border};;
+  }
 `;
