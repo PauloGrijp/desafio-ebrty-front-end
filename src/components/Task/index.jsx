@@ -1,6 +1,14 @@
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai'
 import { dateFormat } from '../../util/format';
-import { Table } from './styles';
+import { 
+  Table,
+  Checked,
+  Description,
+  Status,
+  Priority,
+  Edit,
+  Delete
+} from './styles';
 
 export function Task(prop) {
   const { task, status, priority, createAt } = prop.task;
@@ -8,12 +16,20 @@ export function Task(prop) {
   return (
     <Table>
       <div><input type="checkbox" name="" id="" /></div>
-      <div>{task}</div>
-      <div>{status}</div>
-      <div>{priority}</div>
+      <Description>{task}</Description>
+      <Status status={status}>{status}</Status>
+      <Priority priority={priority}>{priority}</Priority>
       <div>{dateFormated}</div>
-      <div><AiOutlineDelete /></div>
-      <div><AiOutlineEdit /></div>
+      <Edit>
+        <button>
+          <AiOutlineEdit />
+        </button>
+      </Edit>
+      <Delete>
+        <button>
+          <AiOutlineDelete />
+        </button>
+      </Delete>
     </Table>
   );
 };
