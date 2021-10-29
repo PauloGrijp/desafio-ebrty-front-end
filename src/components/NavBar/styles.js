@@ -11,27 +11,34 @@ export const Container = styled.div`
   h1 {
     padding: 1rem;
   }
+`;
 
-  li {    
-    a {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      
-      height: 100%;
-      width: 100%;
-      padding: 2rem;
-    }
+export const Item = styled.li`
+  color: ${({ theme, isActive }) => (
+      isActive ? theme.backgroundLight : theme.primary
+  )};
 
-    i {
-      margin-bottom: 1rem;
+  a {
+    background: ${({ theme, isActive }) => (
+      isActive ? theme.primary : theme.backgroundLight
+    )};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  i {
+    margin-bottom: 1rem;
+    width: 2rem;
+
+    svg {
       width: 2rem;
-
-      svg {
-        width: 2rem;
-        height: 2rem;
-      }
+      height: 2rem;
     }
   }
 `;

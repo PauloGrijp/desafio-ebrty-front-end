@@ -12,12 +12,8 @@ export function NavBar() {
             icon={<AiOutlineBars />}
             route="/"
             text="Listar Tarefas"
-          /> 
-          <Link
-            icon={<AiOutlineBarChart />}
-            route="/progress"
-            text="Progresso"
-          />                  
+            isActive
+          />                 
         </ul>
       </nav>
     </Container>
