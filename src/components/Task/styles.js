@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const Table = styled.div`
   display: grid;
-  grid-template-columns: 0.25fr 5fr 2fr 1fr 1.5fr 0.25fr 0.25fr;
+  grid-template-columns: 7fr 2.5fr 2fr 0.25fr 0.25fr;
   
   width: 100%;
   padding: 1rem 2rem;
@@ -20,9 +20,9 @@ export const Status = styled.div`
   font-weight: 500;
   
   ${({theme, status}) => {
-    if (status === 'pendente') return `color: ${theme.pending}`;
-    if (status === 'em andamento') return `color: ${theme.inProgress}`;
-    if (status === 'pronto') return `color: ${theme.done}`;
+    if (status === 'Pendente') return `color: ${theme.pending}`;
+    if (status === 'Em andamento') return `color: ${theme.inProgress}`;
+    if (status === 'Pronto') return `color: ${theme.done}`;
   }}
 `;
 
