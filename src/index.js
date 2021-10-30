@@ -37,12 +37,7 @@ createServer({
       const id = request.params.id;
       const status = JSON.parse(request.requestBody);
       
-      schema.tasks.find(id).update(status)
-
-      console.log( this.schema.all('task'))
-     
-
-
+      schema.tasks.find(id).update(status);
     })
   }
 });
