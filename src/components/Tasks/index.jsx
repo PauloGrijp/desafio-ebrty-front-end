@@ -15,6 +15,13 @@ export function Tasks() {
       .then((response) => setTasks(response.data.tasks))
   }, []);
 
+  async function createNewTask(newTask) {
+    const response = await api.post('tasks', newTask)
+    const { task } = response.data
+    
+    setTasks([...tasks, task])
+  }
+
   function handleOpenNewTaskModalClose() {
     setIsNewTaskModalOpen(false);
   }
@@ -31,12 +38,13 @@ export function Tasks() {
       </Header>
 
       <Content>
-        {tasks.map((task) => <Task key={task._id} task={task}/>)}
+        {tasks.map(({ _id: id, ...task }) => <Task key={task.id} task={task}/>)}
       </Content>
 
       <NewTaskModal 
         isOpen={isNewTaskModalOpen}
         onRequestClose={handleOpenNewTaskModalClose}
+        createNewTask={createNewTask}
       />
     </Container>
   );

@@ -1,10 +1,23 @@
 import { AiOutlineClose } from 'react-icons/ai';
 import Modal from 'react-modal';
+import { useState } from 'react/cjs/react.development';
 
 import { Container, Header } from './styles';
 
 
-export function NewTaskModal({ isOpen, onRequestClose }) {
+export function NewTaskModal({ isOpen, onRequestClose, createNewTask }) {
+  const [task, setTask] = useState('');
+  const [status, setStatus] = useState('Pendente');
+
+  async function handleCreateNewTask(event) {
+    event.preventDefault()
+
+    await createNewTask({ task,  status });
+
+    setTask('')
+    setStatus('Pendente')
+  }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -19,15 +32,22 @@ export function NewTaskModal({ isOpen, onRequestClose }) {
         </button>
       </Header>
 
-      <Container>
-        <input type="text" placeholder="Descrição da tarefa"/>
+      <Container onSubmit={handleCreateNewTask}>
+        <input
+          type="text"
+          placeholder="Descrição da tarefa"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+        />
         <div>
-          <select name="" id="">
-            <option value="pronto">Pronto</option>
+          <select name="" id="" value={status} onChange={(e) => setStatus(e.target.value)}>
             <option value="pendente">Pendente</option>
             <option value="em andamento">Em andamento</option>
+            <option value="pronto">Pronto</option>
           </select>
-          <button>Adicionar</button>
+          <button type="submit">
+            Adicionar
+          </button>
         </div>
       </Container>
     </Modal>
