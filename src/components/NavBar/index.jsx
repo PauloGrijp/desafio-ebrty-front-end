@@ -10,10 +10,9 @@ export function NavBar() {
         <ul>
           <Link
             icon={<AiOutlineBars />}
-            route="/"
             text="Listar Tarefas"
             isActive
-          />                 
+          />            
         </ul>
       </nav>
     </Container>

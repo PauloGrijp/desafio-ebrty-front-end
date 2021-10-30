@@ -1,12 +1,12 @@
 import { Item } from './styles';
 
-export function Link({ icon, text, route, isActive }) {
+export function Link({ icon, text, isActive }) {
   return (
     <Item isActive={isActive}>
-      <a href={route}>        
+      <button>        
         <i>{icon}</i>
         {text}
-      </a>
+      </button>
     </Item>
   )
 };

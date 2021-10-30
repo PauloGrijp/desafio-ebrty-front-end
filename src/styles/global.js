@@ -20,7 +20,7 @@ export default createGlobalStyle`
     list-style: none;
   }
 
-  button, input {
+  button, input, select {
     font: inherit;
   }
   
@@ -31,6 +31,26 @@ export default createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  .react-modal-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+  }
+  
+  .react-modal-content {
+    max-width: 576px;
+    width: 100%;
+    background-color: ${({ theme }) => theme.backgroundLight};
+    position: relative;
+    border-radius: 0.25rem;
   }
 `;
 
