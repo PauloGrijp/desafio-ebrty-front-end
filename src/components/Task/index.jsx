@@ -9,8 +9,13 @@ import {
 } from './styles';
 
 export function Task(prop) {
-  const { task, status, createAt } = prop.task;
+  const { id, task, status, createAt } = prop.task;
+  const destroyTask = prop.destroyTask
   const dateFormated = dateFormat(createAt);
+
+  function handleDeleteTask() {
+    destroyTask(id)
+  }
   return (
     <Table>
       <Description>{task}</Description>
@@ -22,7 +27,7 @@ export function Task(prop) {
         </button>
       </Edit>
       <Delete>
-        <button>
+        <button onClick={handleDeleteTask}>
           <AiOutlineDelete />
         </button>
       </Delete>

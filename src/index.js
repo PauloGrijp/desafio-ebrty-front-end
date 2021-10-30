@@ -25,8 +25,13 @@ createServer({
 
     this.post('tasks', (schema, request) => {
       const data = JSON.parse(request.requestBody);
-      return schema.create('task', { ...data, createAt: new Date() })
+      return schema.create('task', { ...data, createAt: new Date() });
     });
+
+    this.delete('tasks/:id', (schema, request) => {
+      const id = request.params.id;
+      schema.tasks.find(id).destroy();   
+    })
   }
 });
 

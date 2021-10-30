@@ -41,9 +41,9 @@ export function NewTaskModal({ isOpen, onRequestClose, createNewTask }) {
         />
         <div>
           <select name="" id="" value={status} onChange={(e) => setStatus(e.target.value)}>
-            <option value="pendente">Pendente</option>
-            <option value="em andamento">Em andamento</option>
-            <option value="pronto">Pronto</option>
+            <option value="Pendente">Pendente</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Pronto">Pronto</option>
           </select>
           <button type="submit">
             Adicionar
