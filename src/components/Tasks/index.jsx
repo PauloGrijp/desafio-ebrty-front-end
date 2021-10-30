@@ -28,9 +28,21 @@ export function Tasks() {
     setTasks(newTasks)
   }
 
+  async function editTask(id, status) {
+    await api.put(`tasks/${id}`, {status});
+    const newTasks = tasks.map((task) => {
+      if (task.id === id) {
+        task.status = status;
+        return task
+      }
+      return task
+    })
+    setTasks(newTasks)
+  }
+
   function handleOpenNewTaskModalClose() {
     setIsNewTaskModalOpen(false);
-  }
+  } 
 
   Modal.setAppElement('#root');
 
@@ -49,6 +61,7 @@ export function Tasks() {
             key={task.id}
             task={task}
             destroyTask={destroyTask}
+            editTask={editTask}
           />
         ))}
       </Content>
@@ -57,7 +70,7 @@ export function Tasks() {
         isOpen={isNewTaskModalOpen}
         onRequestClose={handleOpenNewTaskModalClose}
         createNewTask={createNewTask}
-      />
+      />  
     </Container>
   );
 };
