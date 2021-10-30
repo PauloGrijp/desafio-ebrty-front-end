@@ -22,6 +22,12 @@ export function Tasks() {
     setTasks([...tasks, task])
   }
 
+  async function destroyTask(id) {
+    await api.delete(`tasks/${id}`);
+    const newTasks = tasks.filter((task) => task.id !== id)
+    setTasks(newTasks)
+  }
+
   function handleOpenNewTaskModalClose() {
     setIsNewTaskModalOpen(false);
   }
@@ -38,7 +44,13 @@ export function Tasks() {
       </Header>
 
       <Content>
-        {tasks.map(({ _id: id, ...task }) => <Task key={task.id} task={task}/>)}
+        {tasks.map(({ _id: id, ...task }) => (
+          <Task
+            key={task.id}
+            task={task}
+            destroyTask={destroyTask}
+          />
+        ))}
       </Content>
 
       <NewTaskModal 
