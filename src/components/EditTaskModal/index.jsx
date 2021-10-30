@@ -4,8 +4,18 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { Container, Header } from './styles';
 import { useState } from 'react';
 
-function EditTaskModal({isOpen, onRequestClose}) {
+function EditTaskModal({isOpen, onRequestClose, editTask}) {
   const [status, setStatus] = useState('Pendente');
+  
+
+  async function handleEditTask(event) {
+    event.preventDefault()
+
+    await editTask();
+
+    setStatus('Pendente')
+  }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -19,8 +29,8 @@ function EditTaskModal({isOpen, onRequestClose}) {
           <AiOutlineClose />
         </button>
       </Header>
-      
-      <Container>
+
+      <Container onSubmit={handleEditTask}>
         <select name="" id="" value={status} onChange={(e) => setStatus(e.target.value)}>
           <option value="Pendente">Pendente</option>
           <option value="Em andamento">Em andamento</option>

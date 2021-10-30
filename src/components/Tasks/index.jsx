@@ -10,7 +10,7 @@ import EditTaskModal from '../EditTaskModal';
 export function Tasks() {
   const [tasks, setTasks] = useState([]);
   const [isNewTaskModalOpen, setIsNewTaskModalOpen] = useState(false);
-  const [isEditTaskModalOpen, setisEditTaskModalOpen] = useState(false);
+  const [idTask, setIdTask] = useState()
 
   useEffect(() => {
     api.get('tasks')
@@ -32,15 +32,7 @@ export function Tasks() {
 
   function handleOpenNewTaskModalClose() {
     setIsNewTaskModalOpen(false);
-  }
-
-  function handleOpenEditTaskModalOpen() {
-    setisEditTaskModalOpen(true);
-  }
-
-  function handleOpenEditTaskModalClose() {
-    setisEditTaskModalOpen(false);
-  }
+  } 
 
   Modal.setAppElement('#root');
 
@@ -59,8 +51,6 @@ export function Tasks() {
             key={task.id}
             task={task}
             destroyTask={destroyTask}
-            // editTask={editTask}
-            EditTaskModalOpen={handleOpenEditTaskModalOpen}
           />
         ))}
       </Content>
@@ -69,14 +59,7 @@ export function Tasks() {
         isOpen={isNewTaskModalOpen}
         onRequestClose={handleOpenNewTaskModalClose}
         createNewTask={createNewTask}
-      />
-
-      <EditTaskModal
-        isOpen={isEditTaskModalOpen}
-        onRequestClose={handleOpenEditTaskModalClose}      
-      />
-
-    
+      />  
     </Container>
   );
 };
