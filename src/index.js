@@ -37,8 +37,11 @@ createServer({
       const id = request.params.id;
       const status = JSON.parse(request.requestBody);
       
-      console.log(id, status)
+      schema.tasks.find(id).update(status)
+
+      console.log( this.schema.all('task'))
      
+
 
     })
   }

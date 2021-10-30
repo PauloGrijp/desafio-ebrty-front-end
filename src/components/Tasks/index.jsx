@@ -30,8 +30,14 @@ export function Tasks() {
 
   async function editTask(id, status) {
     await api.put(`tasks/${id}`, {status});
-    // const newTasks = tasks.filter((task) => task.id !== id)
-    // setTasks(newTasks)
+    const newTasks = tasks.map((task) => {
+      if (task.id === id) {
+        task.status = status;
+        return task
+      }
+      return task
+    })
+    setTasks(newTasks)
   }
 
   function handleOpenNewTaskModalClose() {
