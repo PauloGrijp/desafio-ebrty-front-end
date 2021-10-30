@@ -9,7 +9,7 @@ import {NewTaskModal} from '../NewTaskModal';
 export function Tasks() {
   const [tasks, setTasks] = useState([]);
   const [isNewTaskModalOpen, setIsNewTaskModalOpen] = useState(false);
-
+  
   useEffect(() => {
     api.get('tasks')
       .then((response) => setTasks(response.data.tasks))
@@ -44,12 +44,51 @@ export function Tasks() {
     setIsNewTaskModalOpen(false);
   } 
 
+  function orderTasks(value) {
+    if(value === 'status') {
+      const ordered = tasks;
+      ordered.sort((a, b) => {
+        return a.status < b.status
+      })
+        console.log(ordered)
+    } 
+  }
+
   Modal.setAppElement('#root');
 
   return (
     <Container>
       <Header>
         <h2>Todas as tarefas</h2>
+        <div>
+          <label htmlFor="alfabetic">
+            <input
+              type="radio"
+              name="order"
+              id="alfabetic"
+              onClick={(e) => orderTasks(e.target.id)}
+            />
+            Ordem alfabética
+          </label> 
+          <label htmlFor="status">
+            <input
+              type="radio"
+              name="order"
+              id="status"
+              onClick={(e) => orderTasks(e.target.id)}
+            />
+            status
+          </label> 
+          <label htmlFor="date">
+            <input
+              type="radio"
+              name="order"
+              id="date"
+              onClick={(e) => orderTasks(e.target.id)}
+            />
+            Data de criação
+          </label>
+        </div>
         <button onClick={() => setIsNewTaskModalOpen(true)}>
           <IoAddCircleOutline />
         </button>
