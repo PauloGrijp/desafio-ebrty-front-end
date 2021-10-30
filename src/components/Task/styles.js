@@ -25,15 +25,6 @@ export const Status = styled.div`
     if (status === 'pronto') return `color: ${theme.done}`;
   }}
 `;
-export const Priority = styled.div`
-  font-weight: 500;
-
- ${({theme, priority}) => {
-    if (priority === 'alta') return `color: ${theme.highPrt}`;
-    if (priority === 'media') return `color: ${theme.mediumPrt}`;
-    if (priority === 'baixa') return `color: ${theme.lowPrt}`;
-  }}
-`;
 
 export const Edit = styled.div`
   button {
