@@ -20,7 +20,7 @@ export default createGlobalStyle`
     list-style: none;
   }
 
-  button, input {
+  button, input, select {
     font: inherit;
   }
   
@@ -49,7 +49,6 @@ export default createGlobalStyle`
     max-width: 576px;
     width: 100%;
     background-color: ${({ theme }) => theme.backgroundLight};
-    padding: 3rem;
     position: relative;
     border-radius: 0.25rem;
   }
