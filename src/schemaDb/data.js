@@ -3,22 +3,19 @@ const dataTask = {
     {
       _id: 1,
       task: 'Primeira tarefa cadastrada',
-      status: 'pendente',
-      priority: 'baixa',
+      status: 'Pendente',
       createAt: new Date(),
     },
     {
       _id: 2,
       task: 'Segunda tarefa cadastrada',
-      status: 'pronto',
-      priority: 'media',
+      status: 'Pronto',
       createAt: new Date(),
     },
     {
       _id: 3,
       task: 'Terceira tarefa cadastrada',
-      status: 'em andamento',
-      priority: 'alta',
+      status: 'Em andamento',
       createAt: new Date(),
     }
   ]
