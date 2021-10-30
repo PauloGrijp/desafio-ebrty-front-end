@@ -1,7 +1,7 @@
 import { lighten } from 'polished';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.form`
   padding: 2rem;
   display: flex;
   justify-content: space-between;

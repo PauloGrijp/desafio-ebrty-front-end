@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai'
+import { api } from '../../services/api';
 import { dateFormat } from '../../util/format';
 import EditTaskModal from '../EditTaskModal';
 
@@ -14,6 +15,7 @@ import {
 export function Task(prop) {
   const { id, task, status, createAt } = prop.task;
   const destroyTask = prop.destroyTask
+  const editTask = prop.editTask
   const [isEditTaskModalOpen, setisEditTaskModalOpen] = useState(false);
   const dateFormated = dateFormat(createAt);
 
@@ -24,6 +26,10 @@ export function Task(prop) {
 
   function handleOpenEditTaskModalClose() {
     setisEditTaskModalOpen(false);
+  }
+
+  function handleEditTask(status) {
+    editTask(id, status)  
   }
 
   return (
@@ -45,7 +51,8 @@ export function Task(prop) {
       </Table>
       <EditTaskModal
         isOpen={isEditTaskModalOpen}
-        onRequestClose={handleOpenEditTaskModalClose}           
+        onRequestClose={handleOpenEditTaskModalClose} 
+        editTask={handleEditTask}      
       />
     </>
   );

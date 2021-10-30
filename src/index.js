@@ -32,6 +32,15 @@ createServer({
       const id = request.params.id;
       schema.tasks.find(id).destroy();   
     })
+
+    this.put('tasks/:id', (schema, request) => {
+      const id = request.params.id;
+      const status = JSON.parse(request.requestBody);
+      
+      console.log(id, status)
+     
+
+    })
   }
 });
 

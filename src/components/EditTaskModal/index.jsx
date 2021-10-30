@@ -10,8 +10,7 @@ function EditTaskModal({isOpen, onRequestClose, editTask}) {
 
   async function handleEditTask(event) {
     event.preventDefault()
-
-    await editTask();
+    await editTask(status);
 
     setStatus('Pendente')
   }

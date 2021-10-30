@@ -5,12 +5,10 @@ import { Task } from '../Task';
 import { api } from '../../services/api';
 import { Container, Content, Header } from './styles';
 import {NewTaskModal} from '../NewTaskModal';
-import EditTaskModal from '../EditTaskModal';
 
 export function Tasks() {
   const [tasks, setTasks] = useState([]);
   const [isNewTaskModalOpen, setIsNewTaskModalOpen] = useState(false);
-  const [idTask, setIdTask] = useState()
 
   useEffect(() => {
     api.get('tasks')
@@ -28,6 +26,12 @@ export function Tasks() {
     await api.delete(`tasks/${id}`);
     const newTasks = tasks.filter((task) => task.id !== id)
     setTasks(newTasks)
+  }
+
+  async function editTask(id, status) {
+    await api.put(`tasks/${id}`, {status});
+    // const newTasks = tasks.filter((task) => task.id !== id)
+    // setTasks(newTasks)
   }
 
   function handleOpenNewTaskModalClose() {
@@ -51,6 +55,7 @@ export function Tasks() {
             key={task.id}
             task={task}
             destroyTask={destroyTask}
+            editTask={editTask}
           />
         ))}
       </Content>
