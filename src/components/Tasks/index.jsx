@@ -5,11 +5,13 @@ import { Task } from '../Task';
 import { api } from '../../services/api';
 import { Container, Content, Header } from './styles';
 import {NewTaskModal} from '../NewTaskModal';
+import { orderedTask } from '../../util/orderedTasks';
+import { OrderInput } from './OrderInput';
 
 export function Tasks() {
   const [tasks, setTasks] = useState([]);
   const [isNewTaskModalOpen, setIsNewTaskModalOpen] = useState(false);
-
+  
   useEffect(() => {
     api.get('tasks')
       .then((response) => setTasks(response.data.tasks))
@@ -44,12 +46,42 @@ export function Tasks() {
     setIsNewTaskModalOpen(false);
   } 
 
+  //source: https://github.com/facebook/react/issues/15595
+  function orderTasks(value) {
+    const ordered = orderedTask(tasks, value);
+    setTasks([...ordered])
+    
+  }
+  
   Modal.setAppElement('#root');
 
   return (
     <Container>
       <Header>
         <h2>Todas as tarefas</h2>
+        <div>
+          <OrderInput 
+            htmlFor="alphabetic"
+            text="Ordem alfabética"
+            name="order"
+            id="alphabetic"
+            orderTasks={orderTasks}
+          />
+          <OrderInput 
+            htmlFor="status"
+            text="Status"
+            name="order"
+            id="status"
+            orderTasks={orderTasks}
+          />
+            <OrderInput 
+            htmlFor="date"
+            text="Data de criação"
+            name="order"
+            id="date"
+            orderTasks={orderTasks}
+          />
+        </div>
         <button onClick={() => setIsNewTaskModalOpen(true)}>
           <IoAddCircleOutline />
         </button>
