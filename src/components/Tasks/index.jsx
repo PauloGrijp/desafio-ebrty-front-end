@@ -6,6 +6,7 @@ import { api } from '../../services/api';
 import { Container, Content, Header } from './styles';
 import {NewTaskModal} from '../NewTaskModal';
 import { orderedTask } from '../../util/orderedTasks';
+import { OrderInput } from './OrderInput';
 
 export function Tasks() {
   const [tasks, setTasks] = useState([]);
@@ -59,33 +60,27 @@ export function Tasks() {
       <Header>
         <h2>Todas as tarefas</h2>
         <div>
-          <label htmlFor="alphabetic">
-            <input
-              type="radio"
-              name="order"
-              id="alphabetic"
-              onClick={(e) => orderTasks(e.target.id)}
-            />
-            Ordem alfabética
-          </label> 
-          <label htmlFor="status">
-            <input
-              type="radio"
-              name="order"
-              id="status"
-              onClick={(e) => orderTasks(e.target.id)}
-            />
-            status
-          </label> 
-          <label htmlFor="date">
-            <input
-              type="radio"
-              name="order"
-              id="date"
-              onClick={(e) => orderTasks(e.target.id)}
-            />
-            Data de criação
-          </label>
+          <OrderInput 
+            htmlFor="alphabetic"
+            text="Ordem alfabética"
+            name="order"
+            id="alphabetic"
+            orderTasks={orderTasks}
+          />
+          <OrderInput 
+            htmlFor="status"
+            text="Status"
+            name="order"
+            id="status"
+            orderTasks={orderTasks}
+          />
+            <OrderInput 
+            htmlFor="date"
+            text="Data de criação"
+            name="order"
+            id="date"
+            orderTasks={orderTasks}
+          />
         </div>
         <button onClick={() => setIsNewTaskModalOpen(true)}>
           <IoAddCircleOutline />
