@@ -5,6 +5,7 @@ import { Task } from '../Task';
 import { api } from '../../services/api';
 import { Container, Content, Header } from './styles';
 import {NewTaskModal} from '../NewTaskModal';
+import { orderedTask } from '../../util/orderedTasks';
 
 export function Tasks() {
   const [tasks, setTasks] = useState([]);
@@ -44,16 +45,13 @@ export function Tasks() {
     setIsNewTaskModalOpen(false);
   } 
 
+  //source: https://github.com/facebook/react/issues/15595
   function orderTasks(value) {
-    if(value === 'status') {
-      const ordered = tasks;
-      ordered.sort((a, b) => {
-        return a.status < b.status
-      })
-        console.log(ordered)
-    } 
+    const ordered = orderedTask(tasks, value);
+    setTasks([...ordered])
+    
   }
-
+  
   Modal.setAppElement('#root');
 
   return (
@@ -61,11 +59,11 @@ export function Tasks() {
       <Header>
         <h2>Todas as tarefas</h2>
         <div>
-          <label htmlFor="alfabetic">
+          <label htmlFor="alphabetic">
             <input
               type="radio"
               name="order"
-              id="alfabetic"
+              id="alphabetic"
               onClick={(e) => orderTasks(e.target.id)}
             />
             Ordem alfabética
