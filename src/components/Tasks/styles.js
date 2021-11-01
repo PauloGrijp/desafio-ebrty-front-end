@@ -30,6 +30,16 @@ export const Header = styled.header`
   border-bottom: 1px solid ${({ theme }) => theme.border};
   padding: 1.2rem 2rem;
 
+   > div {
+     label {
+       margin-right: 0.5rem;
+
+       input {
+         margin-right: 0.25rem;
+       }
+     }
+   }
+
   button {
     border: none;
     background: none;
