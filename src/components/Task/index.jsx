@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai'
-import { api } from '../../services/api';
-import { dateFormat } from '../../util/format';
+import { api } from '../../services/api';import { dateFormat } from '../../util/format';
 import EditTaskModal from '../EditTaskModal';
 
 import { 

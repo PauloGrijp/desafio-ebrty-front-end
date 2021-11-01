@@ -13,19 +13,27 @@ export function Tasks() {
   const [isNewTaskModalOpen, setIsNewTaskModalOpen] = useState(false);
   
   useEffect(() => {
-    api.get('tasks')
-      .then((response) => setTasks(response.data.tasks))
+    const tasksApi = async () => {
+      const response = await api.get('tasks')
+      const data = await response.data.task;
+      const tasksData = data.map(({ _id: id, ...task }) =>  ({ id, ...task }) )
+      
+      setTasks(tasksData)
+    }
+
+    tasksApi()
   }, []);
 
   async function createNewTask(newTask) {
     const response = await api.post('tasks', newTask)
     const { task } = response.data
-    
     setTasks([...tasks, task])
   }
+  console.log(tasks)
 
   async function destroyTask(id) {
     await api.delete(`tasks/${id}`);
+    console.log(tasks)
     const newTasks = tasks.filter((task) => task.id !== id)
     setTasks(newTasks)
   }
@@ -88,7 +96,7 @@ export function Tasks() {
       </Header>
 
       <Content>
-        {tasks.map(({ _id: id, ...task }) => (
+        {tasks.map((task) => (
           <Task
             key={task.id}
             task={task}
